@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Go/No-Go Poll</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="main-container">
+        <h1>NASA | SpaceX Go/No-Go Poll</h1>
+        <div id="login-container">
+            <label for="username">Username:</label>
+            <input type="text" id="username">
+            <label for="password">Password:</label>
+            <input type="password" id="password">
+            <button id="login-button">Login</button>
+        </div>
+        <div id="poll-container" style="display:none;">
+            <h2>Please enter response for:</h2>
+            <div id="department-label"></div>
+            <input type="text" id="response-input" placeholder="G or NG">
+            <input type="text" id="comment-input" placeholder="Comment">
+            <button id="submit-button">Submit</button>
+            <button id="review-button">Review Responses</button>
+            <button id="save-button">Save Results</button>
+            <button id="load-button">Load Results</button>
+            <button id="export-button">Export Results</button>
+            <button id="recommendation-button">Get Recommendation</button>
+            <button id="admin-button">Admin Panel</button>
+            <button id="signout-button">Sign Out</button>
+            <div id="status-label"></div>
+        </div>
+        <div id="review-container" style="display:none;">
+            <h2>Review Responses</h2>
+            <div id="responses-list"></div>
+            <button id="close-review-button">Close</button>
+        </div>
+        <div id="admin-container" style="display:none;">
+            <h2>Admin Panel</h2>
+            <label for="new-department">Add Department:</label>
+            <input type="text" id="new-department">
+            <button id="add-department-button">Add</button>
+            <label for="remove-department">Remove Department:</label>
+            <input type="text" id="remove-department">
+            <button id="remove-department-button">Remove</button>
+            <label for="critical-department">Mark/Unmark Critical Department:</label>
+            <input type="text" id="critical-department">
+            <button id="toggle-critical-button">Toggle Critical</button>
+            <label for="new-username">Change Username:</label>
+            <input type="text" id="new-username">
+            <label for="new-password">Change Password:</label>
+            <input type="password" id="new-password">
+            <button id="change-credentials-button">Change Credentials</button>
+            <button id="rerun-poll-button">Rerun Poll</button>
+            <button id="close-admin-button">Close</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
