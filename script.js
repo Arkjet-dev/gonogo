@@ -41,20 +41,22 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    document.getElementById('submit-button').addEventListener('click', () => {
-        const response = document.getElementById('response-input').value.toUpperCase();
-        const comment = document.getElementById('comment-input').value;
-        if (response === 'G' || response === 'NG') {
-            recordResponse(departments[currentIndex], response, comment);
-            document.getElementById('response-input').value = "";
-            document.getElementById('comment-input').value = "";
-            currentIndex++;
-            updateDepartmentLabel();
-            updateStatus();
-        } else {
-            alert("Please enter 'G' or 'NG'.");
-        }
+    document.getElementById('go-button').addEventListener('click', () => {
+        submitResponse('G');
     });
+
+    document.getElementById('no-go-button').addEventListener('click', () => {
+        submitResponse('NG');
+    });
+
+    function submitResponse(response) {
+        const comment = document.getElementById('comment-input').value;
+        recordResponse(departments[currentIndex], response, comment);
+        document.getElementById('comment-input').value = "";
+        currentIndex++;
+        updateDepartmentLabel();
+        updateStatus();
+    }
 
     document.getElementById('review-button').addEventListener('click', () => {
         reviewContainer.style.display = 'block';
@@ -199,10 +201,16 @@ document.addEventListener('DOMContentLoaded', () => {
         currentIndex = 0;
         document.getElementById('response-input').disabled = false;
         document.getElementById('comment-input').disabled = false;
-        document.getElementById('submit-button').disabled = false;
+        document.getElementById('go-button').disabled = false;
+        document.getElementById('no-go-button').disabled = false;
         updateDepartmentLabel();
         updateStatus();
         alert("The poll has been reset.");
+    });
+
+    document.getElementById('logout-admin-button').addEventListener('click', () => {
+        adminContainer.style.display = 'none';
+        pollContainer.style.display = 'block';
     });
 
     document.getElementById('signout-button').addEventListener('click', () => {
@@ -217,9 +225,9 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('department-label').innerText = departments[currentIndex];
         } else {
             document.getElementById('department-label').innerText = "All departments have been asked.";
-            document.getElementById('response-input').disabled = true;
+            document.getElementById('go-button').disabled = true;
+            document.getElementById('no-go-button').disabled = true;
             document.getElementById('comment-input').disabled = true;
-            document.getElementById('submit-button').disabled = true;
             updateStatus();
         }
     }
