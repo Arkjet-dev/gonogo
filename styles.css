@@ -45,3 +45,19 @@ button:hover {
 h1, h2 {
     margin-top: 0;
 }
+
+#admin-container button {
+    background-color: #FF5722;
+}
+
+#admin-container button:hover {
+    background-color: #E64A19;
+}
+
+#logout-admin-button {
+    background-color: #f44336;
+}
+
+#logout-admin-button:hover {
+    background-color: #d32f2f;
+}
